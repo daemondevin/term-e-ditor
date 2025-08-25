@@ -1,0 +1,457 @@
+/**
+* Theme Definitions
+*/
+:root {
+  --body-bg: #3f3f3f;
+  --bg: #1f1f1f;
+  --fg: #d4d4d4;
+  --directory: #83a06c;
+  --prompt: #83a06c;
+  --cursor: var(--fg);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --fontSize: 1em;
+  --fontFamily: "JetBrains Mono", "Noto Sans Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/*
+  '#000000', // black
+  '#cd0000', // red3
+  '#00cd00', // green3
+  '#cdcd00', // yellow3
+  '#0000ee', // blue2
+  '#cd00cd', // magenta3
+  '#00cdcd', // cyan3
+  '#e5e5e5', // gray90
+*/
+#terminal.vs2019-dark {
+  --bg: #1E1E1E;
+  --fg: #C8C8C8;
+  --prompt: #B0B0B0;
+  --cursor: var(--fg);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #505050;
+  --cursor: var(--prompt);
+  --dir: #AA759F;
+  --path: #6A9FB5;
+  --host: #75B5AA;
+  --user: #75B5AA;
+  --success: #90A959;
+  --warn: #D28445;
+  --error: #AC4142;
+  --info: #6A9FB5;
+  --at: #B0B0B0;
+  --cmd: #F4BF75;
+  --parameter: #AA759F;
+  --file: #B0B0B0;
+}
+
+#terminal.dark {
+  --bg: #202020;
+  --fg: #D0D0D0;
+  --prompt: #B0B0B0;
+  --cursor: var(--fg);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #505050;
+  --cursor: var(--prompt);
+  --dir: #AA759F;
+  --path: #6A9FB5;
+  --host: #75B5AA;
+  --user: #75B5AA;
+  --success: #90A959;
+  --warn: #D28445;
+  --error: #AC4142;
+  --info: #6A9FB5;
+  --at: #B0B0B0;
+  --cmd: #F4BF75;
+  --parameter: #AA759F;
+  --file: #B0B0B0;
+}
+
+#terminal.light {
+  --bg: #fefefe;
+  --fg: #1e1e1e;
+  --dir: #526e39;
+  --prompt: #526e39;
+  --cursor: var(--fg);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #d86c74;
+  --host: #cd9a61;
+  --user: #cd9a61;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #00d2ff;
+  --at: #ccc;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.laserwave {
+  --bg: #27212e;
+  --fg: #ffffff;
+  --dir: #40b4c4;
+  --prompt: #eb64b9;
+  --cursor: var(--prompt);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #aa759f;
+  --host: #61d6d6;
+  --user: #90a959;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #00d2ff;
+  --at: #ccc;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.nord {
+  --bg: #2e3440;
+  --fg: #e5e9f0;
+  --dir: #ebcb8b;
+  --prompt: #e5e9f0;
+  --cursor: #88c0d0;
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #ebcb8b;
+  --host: #d08770;
+  --user: #bf616a;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #88c0d0;
+  --at: #a3be8c;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.dracula {
+  --bg: #282936;
+  --fg: #e9e9f4;
+  --dir: #8be9fd;
+  --prompt: #e97fc0;
+  --cursor: #6272a4;
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #62d6e8;
+  --host: #00f769;
+  --user: #ebff87;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #00d2ff;
+  --at: #ccc;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.greyscale {
+  --bg: #1d1d1d;
+  --fg: #fff;
+  --dir: #888;
+  --prompt: #7a7a7a;
+  --cursor: var(--prompt);
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #aa759f;
+  --host: #61d6d6;
+  --user: #90a959;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #00d2ff;
+  --at: #ccc;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.nightowl {
+  --bg: #011627;
+  --fg: #d6deeb;
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --prompt: #c792ea;
+  --selection: #999;
+  --cursor: var(--prompt);
+  --dir: #ffcb8b;
+  --path: #aa759f;
+  --host: #61d6d6;
+  --user: #90a959;
+  --success: #25cc3e;
+  --warn: #ffbf2f;
+  --error: #ff6159;
+  --info: #00d2ff;
+  --at: #ccc;
+  --cmd: #f4bf75;
+  --parameter: #6a9fb5;
+  --file: #5ed7ff;
+}
+
+#terminal.onedark {
+  --bg: #282c34;
+  --fg: #abb2bf;
+  --listItem: var(--fg);
+  --listTitle: var(--fg);
+  --link: var(--fg);
+  --tree: var(--fg);
+  --prompt: #528bff;
+  --selection: #abb2bf;
+  --cursor: var(--prompt);
+  --dir: #d86c74;
+  --path: var(--prompt);
+  --host: #cd9a61;
+  --user: #d86c74;
+  --success: #98c379;
+  --warn: #d19a66;
+  --error: red;
+  --info: #667689;
+  --at: #abb2bf;
+  --cmd: #d86c74;
+  --parameter: #667689;
+  --file: #d86c74;
+}
+
+/**
+* Terminal Default Styling
+*/
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--body-bg);
+  color: var(--fg);
+  margin: 0;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  font-weight: 400;
+}
+
+#terminal {
+  background-color: var(--bg);
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  line-height: 1.15;
+  font-size: var(--fontSize);
+}
+
+::-webkit-scrollbar {
+  width: 22px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--fg);
+  border-radius: 10px;
+  border: 8px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(100, 100, 100, 0.4);
+}
+
+pre {
+    margin: 0;
+}
+
+#terminal .container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  cursor: default;
+  color: var(--fg);
+  scrollbar-color: var(--fg) var(--bg);
+}
+
+#terminal .container a {
+  color: var(--path);
+  text-decoration-line: underline;
+  text-decoration-thickness: from-font;
+  text-decoration-style: dotted;
+}
+
+#terminal .container a:hover {
+  color: var(--path);
+  text-decoration: none;
+}
+
+/**
+ * Prompt Styling
+ */
+.prompt {
+  display: flex;
+}
+
+#terminal ::selection {
+  background: var(--selection);
+  text-shadow: none !important;
+}
+
+#terminal .container .cursor {
+  color: var(--cursor);
+}
+
+#terminal .container .path {
+  color: var(--path);
+}
+
+#terminal .container .host {
+  color: var(--host);
+}
+
+#terminal .container .user {
+  color: var(--user);
+}
+
+#terminal .container .success {
+  color: var(--success);
+}
+
+#terminal .container .warn {
+  color: var(--warn);
+}
+
+#terminal .container .error {
+  color: var(--error);
+}
+
+#terminal .container .info {
+  color: var(--info);
+}
+
+#terminal .container .at {
+  color: var(--at);
+}
+
+#terminal .container .cmd {
+  color: var(--cmd);
+}
+
+#terminal .container .parameter {
+  color: var(--parameter);
+}
+
+#terminal .container .dir {
+  color: var(--dir);
+}
+
+#terminal .container .file {
+  color: var(--file);
+}
+
+.blink::after {
+  content: attr(data-cursor-type);
+  color: var(--cursor);
+  animation: blink 1.25s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+
+#scsaver main {
+  display: flex;
+}
+
+#scsaver p {
+  line-height: 1;
+}
+
+#scsaver span {
+  display: block;
+  width: 2vmax;
+  height: 2vmax;
+  font-size: 2vmax;
+  color: #9bff9b11;
+  text-align: center;
+  font-family: monospace;
+}
+
+#BJContainer {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: auto max-content max-content;
+  gap: 5px 5px;
+  grid-template-areas:
+    "playermoney playermoney"
+    "playercards playerscore"
+    "dealercards dealerscore";
+}
+
+#BJContainer .playermoney {
+  justify-self: center;
+  align-self: center;
+  grid-area: playermoney;
+}
+#BJContainer .playercards {
+  justify-self: center;
+  grid-area: playercards;
+}
+#BJContainer .dealercards {
+  justify-self: center;
+  grid-area: dealercards;
+}
+#BJContainer .playerscore {
+  align-self: center;
+  grid-area: playerscore;
+}
+#BJContainer .dealerscore {
+  align-self: center;
+  grid-area: dealerscore;
+}

@@ -3,7 +3,7 @@
 > A powerful, feature-rich terminal emulator built for the web with a complete virtual filesystem, gaming features, and extensive customization options.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/your-username/termeditor)
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/daemondevin/term-e-ditor)
 
 ## 🌟 Features
 
@@ -93,20 +93,26 @@ const terminal = new TerminalEmulator('#terminal', vfs, options);
 
 ```
 termeditor/
-├── index.html              # Main HTML file with examples
-├── css/
-│   └── style.css           # Terminal themes and styling
-└── js/
-    ├── index.js            # Main entry point and factory
-    ├── terminal.js         # Core terminal emulator class
-    ├── vfs.js              # Virtual filesystem implementation
-    ├── tree.js             # Tree data structure for filesystem
-    ├── parser.js           # Command line parser
-    ├── command.js          # Built-in commands and command manager
-    ├── utils.js            # Utility functions
-    ├── examples.js         # Usage examples and demos
-    ├── filesystem-data.js  # Default filesystem structure
-    └── plugins.js          # Plugin system (optional)
+    ├── index.html              # Main HTML file with examples
+    ├── README.md               # This file 
+    ├─── css/
+    │     └── style.css         # Terminal themes and styling
+    └─── js/
+        ├── index.js            # Main entry point and factory
+        ├── terminal.js         # Core terminal emulator class
+        ├── vfs.js              # Virtual filesystem implementation
+        ├── tree.js             # Tree data structure for filesystem
+        ├── parser.js           # Command line parser
+        ├── command.js          # Built-in commands and command manager
+        ├── utils.js            # Utility functions
+        ├── examples.js         # Usage examples and demos
+        ├── filesystem-data.js  # Default filesystem structure
+        ├── sessions.js         # Session management class
+        └─── plugins/
+                ├── edit.js         # TextEditor plugin
+                ├── github.js       # GitHub Cli plugin
+                ├── nodejs.js       # NodeJS REPL plugin
+                └── python.js       # Python REPL plugin
 ```
 
 ## 🎮 Built-in Commands

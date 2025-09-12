@@ -300,11 +300,12 @@
     </script>
     <script type="module">
         import { TerminalEmulator, VirtualFileSystem } from './js/index.js';
-        import { Utils } from './js/utils.js';
+        import utils from './js/utils.js';
         import { PythonREPL } from './js/plugins/python.js';
         import { TextEditor } from './js/plugins/edit.js';
         import { GitHubCli } from './js/plugins/github.js';
         import { NodeJS } from './js/plugins/nodejs.js';
+        import { NPM } from './js/plugins/npm.js';
 
         const vfs = new VirtualFileSystem();
         const terminal = new TerminalEmulator('#terminal', vfs, {
@@ -317,7 +318,7 @@
             "type": "script",
             "mime": "application/javascript",
             "help": "<span class=\"cmd\">wizard</span>: Interactive setup wizard\n\nGuides new users through initial terminal configuration and features.\n\nOptions:\n\t--reset\t\tReset user data and run setup again\n\t--demo\t\tRun in demo mode (no data persistence)\n\t-h, --help\tShow this help message",
-            "func": async function (argv) {
+            "func": async function (terminal, argv) {
                 if (argv.help || argv.h) {
                     terminal.printHTML(terminal.commands[argv.command].help);
                     return;
@@ -758,12 +759,12 @@
             "type": "script",
             "mime": "application/javascript",
             "help": "<span class=\"cmd\">blackjack</span>:\n\tLaunch the game Blackjack\n\n\t",
-            "func": async function (argv) {
+            "func": async function (terminal, argv) {
                 if (argv.help || argv.h) {
                     terminal.printHTML(terminal.commands[argv.command].help);
                     return;
                 }
-
+                console.log(argv);
                 let blackjack = terminal.user.games?.blackjack || {
                     handsPlayed: 0,
                     handsWon: 0,
@@ -1200,7 +1201,7 @@
             "type": "script",
             "mime": "application/javascript",
             "help": "<span class=\"cmd\">rps</span>: Rock Paper Scissors game\n\tPlay the classic game against the computer\n\n\t",
-            "func": async function (argv) {
+            "func": async function (terminal, argv) {
                 if (argv.help || argv.h) {
                     terminal.printHTML(terminal.commands[argv.command].help);
                     return;
@@ -1368,7 +1369,7 @@
             "type": "script", 
             "mime": "application/javascript",
             "help": "<span class=\"cmd\">guess</span>: Number guessing game\n\tGuess the secret number between 1 and 100\n\n\t",
-            "func": async function (argv) {
+            "func": async function (terminal, argv) {
                 if (argv.help || argv.h) {
                     terminal.printHTML(terminal.commands[argv.command].help);
                     return;
@@ -1518,7 +1519,7 @@
             "type": "script",
             "mime": "application/javascript", 
             "help": "<span class=\"cmd\">slots</span>: Advanced 5-reel slot machine\n\tMultiple paylines, bonus features, and progressive gameplay!\n\n\t",
-            "func": async function (argv) {
+            "func": async function (terminal, argv) {
                 if (argv.help || argv.h) {
                     terminal.printHTML(terminal.commands[argv.command].help);
                     return;
@@ -1875,6 +1876,216 @@
             }
         });
 
+        terminal.registerCommand("hacksploit", {
+            "name": "hacksploit",
+            "type": "script",
+            "mime": "application/javascript",
+            "help": "<span class=\"cmd\">hacksploit</span>:\n\tLaunch the Hacksploit framework\n\n\tDepending on the target, this command will scan penetration frameworks\n\tto download applicable exploits, payloads, and other various modules.\n\n\tIt will check the host for vulnerabilities, run the modules against the\n\ttarget, execute the payload(s) upon connection, then exports any hash\n\tand/or password dumps to the local filesystem.\n\n\t<span class=\"info\">ATTN: Just a simulation. This is a fake command..</span>\n\n",
+            "func": async function (terminal, argv) {
+                console.log(argv);
+                if (argv.help || argv.h) {
+                    terminal.printHTML(terminal.commands[argv.command].help);
+                    return;
+                }
+                const originalPS1 = terminal._promptPS1.innerHTML;
+                let $hackData;
+                if (argv._.length === 0) {
+                    terminal.secondaryCommand(true);
+                    terminal.setPrompt(' ').newLine();
+                    terminal.showPrompt = false;
+                    terminal.command = '';
+                    terminal.clear();
+                    await terminal.type("Launching Hacksploit..");
+                    await TerminalEmulator.sleep(1500);
+                    const loading = [
+                        'Now loading',
+                        'Please wait',
+                        'Now loading..',
+                        'Please wait..',
+                        'Now loading...',
+                        'Please wait...'
+                    ];
+                    const init =
+                        "                      :::!~!!!!!:.\n" +
+                        "                  .xUHWH!! !!?M88WHX:.\n" +
+                        "                .X*#M@$!!  !X!M$$$$$$WWx:.\n" +
+                        "               :!!!!!!?H! :!$!$$$$$$$$$$8X:\n" +
+                        "              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:\n" +
+                        "             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!\n" +
+                        "             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!\n" +
+                        "             !:~~~~~~ .:ᴅᴀᴇᴍᴏɴ!$WX??#MRRMMM!\n" +
+                        "               ~?WuxiW*`   `'#$ᴉɹᴉɥɐꓕ!!??!!!\n" +
+                        "             :X- M$$$$       `'T#$T~!8$WUXU~\n" +
+                        "            :%`  ~#$$$m:        ~!~ ?$$$$$$\n" +
+                        "          :!`.-   ~T$$$$8xx.  .xWW- ~''##*'\n" +
+                        ".....   -~~:<` !    ~?T#$$@@W@*?$$      /`\n" +
+                        "W$@@M!!! .!~~ !!     .:XUW$W!~ `'~:    :\n" +
+                        "#'~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`\n" +
+                        ":::~:!!`:X~ .: ?H.!u '$$$B$$$!W:U!T$$M~\n" +
+                        ".~~   :X@!.-~   ?@WTWo('*$$$W$TH$! `\n" +
+                        "Wi.~!X$?!-~    : ?$$$B$Wu('**$RM!\n" +
+                        "$R@i.~~ !     :   ~$$$$$B$$en:``\n" +
+                        "?MXT@Wx.~    :     ~'##*$$$$M~\n" +
+                        ":::!_-~'    :        -.....-\n" +
+                        "⠀▄ .▄ ▄▄▄·  ▄▄· ▄ •▄ .▄▄ ·  ▄▄▄·▄▄▌        ▪  ▄▄▄▄▄▄\n" +
+                        "██▪▐█▐█ ▀█ ▐█ ▌▪█▌▄▌▪▐█ ▀. ▐█ ▄███•   ▄█▀▄ ██ ▀•██ ▀\n" +
+                        "██▀▀█▄█▀▀█ ██ ▄▄▐▀▀▄·▄▀▀▀█▄ ██▀·██ ▪ ▐█▌.▐▌▐█·  ▐█.▪\n" +
+                        "██▌▐▀▐█▪ ▐▌▐███▌▐█.█▌▐█▄▪▐█▐█▪·•▐█▌ ▄▐█▌.▐▌▐█▌  ▐█▌·\n" +
+                        "▀▀▀ · ▀  ▀ ·▀▀▀ ·▀  ▀ ▀▀▀▀ .▀   .▀▀▀  ▀█▄▀▪▀▀▀  ▀▀▀ \n";
+                    terminal.clear();
+                    terminal.print(init);
+                    await TerminalEmulator.sleep(1500);
+                    terminal.newLine();
+                    await terminal.type("₩ɆⱠ₵Ø₥Ɇ ₮Ø Ⱨ₳₵₭₴₱ⱠØł₮");
+                    terminal.newLine();
+                    let userName, userIP, lastIP;
+                    terminal.print("ʜᴀᴄᴋꜱᴩʟᴏɪᴛ ʟᴏɢɪɴ");
+                    if (terminal.user.name === "demo") {
+                        terminal.setPrompt('ᴀʟɪᴀꜱ » ');
+                        userName = await terminal.prompt("");
+                        terminal.setPrompt(' ');
+                        lastIP = "n/a";
+                    } else {
+                        lastIP = terminal.user.ip;
+                        try {
+                            const response = await fetch('https://api64.ipify.org?format=json');
+                            const data = await response.json();
+                            terminal.user.ip = data.ip;
+                        } catch (error) {
+                            console.warn('Failed to retrieve client IP:', error);
+                            terminal.user.ip = `${utils.rand(255)}.${utils.rand(255)}.${utils.rand(255)}.${utils.rand(255)}`;
+                        }
+                        if (terminal.confirm(`Login as ${terminal.user.name} as your alias?`, true)) {
+                            userName = terminal.user.name;
+                        } else {
+                            terminal.setPrompt('ᴀʟɪᴀꜱ » ');
+                            userName = await terminal.prompt("");
+                            terminal.setPrompt(' ');
+                        }
+                    }
+                    await TerminalEmulator.sleep(1000);
+                    terminal.clear();
+                    terminal.print(init);
+                    terminal.newLine();
+                    await terminal.type("Welcome " + userName + "");
+                    await TerminalEmulator.sleep(2500);
+                    terminal.printHTML("<span class='info'>\nLast logged in from: " + lastIP + "</span>\nCurrently logged in from: <span class='success'>" + terminal.user.ip + "</span>\n");
+                    terminal.scrollBottom();
+                    await TerminalEmulator.sleep(3000);
+                    terminal.printHTML("Enter a <span class='path'>hostname</span> or <span class='path'>ip address</span> to exploit:");
+                    terminal.setPrompt('ʜᴀᴄᴋꜱᴩʟᴏɪᴛ » ');
+                    let input = await terminal.prompt("");
+                    terminal.setPrompt(' ');
+                    const validInput = function(input) {
+                        return utils.isHostname(input) || utils.isValidIP(input);
+                    };
+                    if (validInput(input)) {
+                        let stdin = `hacksploit ${input} --hack`;
+                        terminal.executeCommand(stdin);
+                    } else {
+                        terminal.printHTML("<span class='error'>\n\nYou don't belong here..</span>\nBack from whence thou came!\n");
+                        await TerminalEmulator.sleep(3000);
+                        terminal.setPrompt(originalPS1);
+                        terminal.secondaryCommand(false);
+                        terminal.clear();
+                        return;
+                    }
+                }
+                if (argv._.length > 0 && argv.hack) {
+                    $("body").data("");
+                    const tools = "hydra,hashcat,john,apktool,medusa,aircrack-ng,wifite,metasploit,redeye,wireshark,binwalk,fcrackzip,wifiphisher,sslscan,reaver".split(",");
+                    let tool = {phase: 0, d: []};
+                    let j, x, t, d, p;
+                    terminal.newLine();
+                    terminal.print("Downloading exploits.. please wait!\n");
+                    for (let i = 0; i < utils.rand(tools.length); i++) {
+                        x = tools.splice(utils.rand(tools.length - 1), 1)[0];
+                        const $progress = document.createElement("span");
+                        $progress.className = "progress" + x;
+                        $progress.setAttribute("data-count", i);
+                        terminal.stdout.appendChild($progress);
+                        //terminal.printHTML($progress);
+                        terminal.newLine();
+                        tool.d[i] = {n: x, i: utils.history.index - 1, p: 0};
+                    }
+                    $("body").data(tool);
+                    let stdin = `hacksploit ${argv._} -download`;
+                    await terminal.executeCommand(stdin);
+                }
+                if (argv._.length > 0 && argv.download) {
+                    $hackData = $("body").data();
+                    if (!navigator.onLine) {
+                        terminal.print("bash: hack: No internet connection...");
+                        terminal.setPrompt(originalPS1);
+                        terminal.secondaryCommand(false);
+                        return;
+                    }
+                    if ($hackData.phase === 0) {
+                        setTimeout(async function () {
+                            let i = 0;
+                            await $hackData.d.forEach(async function (e) {
+                                if (e.p !== 100) {
+                                    e.p += utils.rand(e.n.length);
+                                    if (e.p > 100) {
+                                        e.p = 100;
+                                        i++;
+                                    }
+                                    await utils.showProgress(i, e.p, 100, "Import:&nbsp;" + e.n, "");
+                                } else {
+                                    i++;
+                                }
+                            });
+                            $("body").data($hackData);
+                            if (i === $hackData.d.length) {
+                                $hackData.phase = 1;
+                                $hackData.d = [' |0', 'Connection to \'' + argv._[0] + '\' (' + utils.rand(255) + '.' + utils.rand(255) + '.' + utils.rand(255) + '.' + utils.rand(255) + ')|' + (utils.rand(5000) + 500)];
+                                $hackData.d = $hackData.d.concat(utils.newArray(utils.rand(10) + 5, '.|20'));
+                                $hackData.d.push(' |100');
+                                for (let j = 0; j < utils.rand(25) + 2; j++) {
+                                    let y = utils.rand(30);
+                                    for (let x = 0; x < y; x++) {
+                                        $hackData.d.push((y * (x + 1)) + ' / ' + (y * y) + ' bytes|' + (utils.rand(10) + 20));
+                                    }
+                                    $hackData.d.push(' |120');
+                                }
+                                for (let j = 0; j < utils.rand(2000) + 500; j++) {
+                                    $hackData.d.push(utils.createName(Math.floor(innerWidth / 8.44) - 1) + '|5');
+                                }
+                            }
+                            $("body").data($hackData);
+                            let stdin = `hacksploit ${argv._} -download`;
+                            await terminal.executeCommand(stdin);
+                        }, utils.rand(69) + 100);
+                    } else if ($hackData.phase === 1) {
+                        $hackData = $("body").data();
+                        if ($hackData.d.length !== 0) {
+                            let l = $hackData.d.shift().split('|');
+                            terminal.write(l[0] + "\n");
+                            setTimeout(async function () {
+                                $("body").data($hackData);
+                                let stdin = `hacksploit ${argv._} -download`;
+                                await terminal.executeCommand(stdin);
+                            }, parseInt(l[1]));
+                            return;
+                        } else {
+                            $hackData.phase = 2;
+                            terminal.newLine();
+                            terminal.print("ACCESS GRANTED!", "success");
+                            terminal.printHTML("<strong>Server Information:</strong>", "warn");
+                            terminal.write("&emsp;Host: " + argv._ + " ");
+                            terminal.printHTML("&emsp;Database: <span class=\"info\">phpMyAdmin v1.52.1a</span>");
+                            terminal.printHTML("&emsp;Database Login: <span class=\"user\">root</span>@<span class=\"host\">" + utils.rand(255) + "." + utils.rand(255) + "." + utils.rand(255) + "." + utils.rand(255) + "</span>");
+                            terminal.newLine();
+                            terminal.setPrompt(originalPS1);
+                            terminal.secondaryCommand(false);
+                            $("body").data($hackData);
+                            return;
+                        }
+                    }
+                }
+            }
+        });
+
         terminal.registerCommand("python", {
             name: 'python',
             type: 'exec',
@@ -1907,19 +2118,23 @@
             }
         });
 
+        terminal.registerCommand("npm", {
+            name: 'npm',
+            type: 'exec', 
+            help: 'Search npm packages',
+            func: async (terminal, argv) => {
+                const npmSession = new NPM(terminal);
+                terminal.pushSession(npmSession);
+            }
+        });
+
         terminal.registerCommand("github", {
             name: 'github',
             type: 'exec', 
             help: 'Start GitHub CLI',
             func: async (terminal, argv) => {
-                if (argv._.length === 0) {
-                    terminal.printError('Usage: github [username]');
-                    return;
-                }
-                if (argv._[0] != null && argv._[0].trim() !== '') {
-                    const githubSession = new GitHubCli(terminal, argv._[0]);
-                    terminal.pushSession(githubSession);
-                }  
+                const githubSession = new GitHubCli(terminal);
+                terminal.pushSession(githubSession);
             }
         });
 

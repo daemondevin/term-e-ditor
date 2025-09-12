@@ -432,11 +432,11 @@ const results = await DebugUtils.benchmarkCommand(terminal, 'ls', 100);
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome | 70+ | [X] Full |
-| Firefox | 65+ | [X] Full |
-| Safari | 12+ | [X] Full |
-| Edge | 79+ | [X] Full |
-| Opera | 57+ | [X] Full |
+| Chrome | 70+ | Full |
+| Firefox | 65+ | Full |
+| Safari | 12+ | Full |
+| Edge | 79+ | Full |
+| Opera | 57+ | Full |
 
 ## Contributing
 

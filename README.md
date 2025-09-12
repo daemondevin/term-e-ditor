@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/daemondevin/term-e-ditor)
 
-## 🌟 Features
+## Features
 
 ### Core Terminal Features
 - **Full Unix-like Command Set** - ls, cd, cat, mkdir, rm, and many more
@@ -39,7 +39,7 @@
 - **Custom Commands** - Easy command registration system
 - **Event Hooks** - Plugin-based event system
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Basic Setup
 
@@ -89,7 +89,7 @@ const vfs = new VirtualFileSystem();
 const terminal = new TerminalEmulator('#terminal', vfs, options);
 ```
 
-## 📁 File Structure
+## File Structure
 
 ```
 termeditor/
@@ -115,7 +115,7 @@ termeditor/
                 └── python.js       # Python REPL plugin
 ```
 
-## 🎮 Built-in Commands
+## Built-in Commands
 
 ### File System Commands
 - `ls [-l] [-a] [path]` - List directory contents
@@ -148,7 +148,7 @@ termeditor/
 - `wizard [--reset]` - Run setup wizard
 - `sysinfo` - Display system information
 
-## 🎨 Available Themes
+## Available Themes
 
 | Theme | Description |
 |-------|-------------|
@@ -169,7 +169,7 @@ terminal.setTheme('dracula');
 terminal.executeCommand('theme dracula');
 ```
 
-## 📓 Session Management
+## Session Management
 
 The `session.js` module provides a foundation for building and managing terminal applications with multiple interactive modes (like REPLs, command-specific interfaces, etc.) with proper session stacking. The JSDoc documentation is thorough, making it easy to understand its functionality and usage..
 
@@ -268,7 +268,7 @@ class PythonREPL extends InteractiveSession {
 terminal.sessionManager.push(new PythonREPL(terminal));
 ```
 
-## 🎯 Examples
+## Examples
 
 ### Multiple Terminals with Shared Filesystem
 
@@ -314,7 +314,7 @@ terminal.registerCommand('chat', {
 });
 ```
 
-## 🛠️ API Reference
+##  API Reference
 
 ### TerminalEmulator Class
 
@@ -347,7 +347,7 @@ new TerminalEmulator(element, filesystem, options)
 - `cp(source, destination)` - Copy file/directory
 - `mv(source, destination)` - Move file/directory
 
-## ⚙️ Configuration Options
+##  Configuration Options
 
 ```javascript
 const options = {
@@ -374,7 +374,7 @@ const options = {
 };
 ```
 
-## 🎮 Gaming System
+## Gaming System
 
 The terminal includes a complete gaming ecosystem with the following features:
 
@@ -397,7 +397,7 @@ Each game tracks detailed statistics:
 - **RPS**: Animated battles with ASCII art
 - **Guess**: Strategic number guessing with hints
 
-## 🔧 Advanced Features
+## Advanced Features
 
 ### Performance Monitoring
 ```javascript
@@ -428,17 +428,17 @@ const validation = DebugUtils.validateFilesystem(terminal.vfs);
 const results = await DebugUtils.benchmarkCommand(terminal, 'ls', 100);
 ```
 
-## 🌐 Browser Compatibility
+## Browser Compatibility
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome | 70+ | ✅ Full |
-| Firefox | 65+ | ✅ Full |
-| Safari | 12+ | ✅ Full |
-| Edge | 79+ | ✅ Full |
-| Opera | 57+ | ✅ Full |
+| Chrome | 70+ | [X] Full |
+| Firefox | 65+ | [X] Full |
+| Safari | 12+ | [X] Full |
+| Edge | 79+ | [X] Full |
+| Opera | 57+ | [X] Full |
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -446,11 +446,11 @@ const results = await DebugUtils.benchmarkCommand(terminal, 'ls', 100);
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🐛 Bug Reports
+## Bug Reports
 
 Did you step on a bug while using the terminal? Please open an issue on our [GitHub Issues](https://github.com/daemondevin/term-e-ditor/issues) page and tell us all about it.
 

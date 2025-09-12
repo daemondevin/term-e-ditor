@@ -2128,6 +2128,16 @@
             }
         });
 
+        terminal.registerCommand("composer", {
+            name: 'composer',
+            type: 'exec', 
+            help: 'Search packagist packages',
+            func: async (terminal, argv) => {
+                const composerSession = new Composer(terminal);
+                terminal.pushSession(composerSession);
+            }
+        });
+
         terminal.registerCommand("github", {
             name: 'github',
             type: 'exec', 
@@ -2150,3 +2160,4 @@
     </script>
 </body>
 </html>
+

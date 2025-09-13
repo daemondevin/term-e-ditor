@@ -303,6 +303,7 @@
         import utils from './js/utils.js';
         import { PythonREPL } from './js/plugins/python.js';
         import { TextEditor } from './js/plugins/edit.js';
+        import { Metasploit } from './js/plugins/metasploit.js';
         import { GitHubCli } from './js/plugins/github.js';
         import { NodeJS } from './js/plugins/nodejs.js';
         import { NPM } from './js/plugins/npm.js';
@@ -2138,6 +2139,16 @@
             }
         });
 
+        terminal.registerCommand("metasploit", {
+            name: 'metasploit',
+            type: 'exec', 
+            help: 'Run a mock Metasploit REPL',
+            func: async (terminal, argv) => {
+                const metasploitSession = new Metasploit(terminal);
+                terminal.pushSession(metasploitSession);
+            }
+        });
+
         terminal.registerCommand("github", {
             name: 'github',
             type: 'exec', 
@@ -2160,4 +2171,5 @@
     </script>
 </body>
 </html>
+
 
